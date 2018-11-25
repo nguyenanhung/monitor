@@ -1,0 +1,49 @@
+{
+    "name": "nguyenanhung/monitor",
+    "type": "library",
+    "description": "Monitor Connector",
+    "keywords": [
+        "php",
+        "monitor",
+        "bug",
+        "tracker",
+        "connector"
+    ],
+    "homepage": "https://github.com/nguyenanhung/monitor",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Nguyen An Hung",
+            "email": "dev@nguyenanhung.com",
+            "homepage": "https://nguyenanhung.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "nguyenanhung/requests": "^0.1",
+        "nguyenanhung/mantis-connector": "^1.0",
+        "maknz/slack": "^1.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.8 < 6.0",
+        "kint-php/kint": "^3.0",
+        "fzaninotto/faker": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "nguyenanhung\\Monitor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ThuDoMultimediaSDKServicesVNMTestsCase\\": "tests/"
+        }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public",
+        "test": "php vendor/bin/phpunit"
+    }
+}
