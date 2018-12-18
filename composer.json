@@ -23,7 +23,7 @@
         "php": ">=5.4",
         "ext-curl": "*",
         "ext-json": "*",
-        "nguyenanhung/requests": "^0.1",
+        "nguyenanhung/requests": "^1.0",
         "nguyenanhung/mantis-connector": "^1.0",
         "maknz/slack": "^1.7"
     },
