@@ -11,12 +11,14 @@ namespace nguyenanhung\Monitor\Slack;
 
 use Maknz\Slack\Client;
 use Maknz\Slack\Message;
-use nguyenanhung\Monitor\Interfaces\ProjectInterface;
+use nguyenanhung\Monitor\ProjectInterface;
 
 /**
  * Class SlackMessenger
  *
- * @package nguyenanhung\Monitor\Slack
+ * @package   nguyenanhung\Monitor\Slack
+ * @author    713uk13m <dev@nguyenanhung.com>
+ * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 class SlackMessenger implements ProjectInterface, SlackMessengerInterface
 {
