@@ -6,19 +6,19 @@
  * Time: 14:55
  */
 
-namespace nguyenanhung\Monitor\Interfaces;
+namespace nguyenanhung\Monitor;
 
 /**
  * Interface ProjectInterface
  *
- * @package   nguyenanhung\Monitor\Interfaces
+ * @package   nguyenanhung\Monitor
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 interface ProjectInterface
 {
-    const VERSION             = '1.0.2';
-    const LAST_MODIFIED       = '2018-12-18';
+    const VERSION             = '1.0.3';
+    const LAST_MODIFIED       = '2019-04-11';
     const AUTHOR_NAME         = 'Hung Nguyen';
     const AUTHOR_EMAIL        = 'dev@nguyenanhung.com';
     const PROJECT_NAME        = 'Monitor Connector';

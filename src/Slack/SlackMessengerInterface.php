@@ -12,7 +12,9 @@ namespace nguyenanhung\Monitor\Slack;
 /**
  * Interface SlackMessengerInterface
  *
- * @package nguyenanhung\Monitor\Slack
+ * @package   nguyenanhung\Monitor\Slack
+ * @author    713uk13m <dev@nguyenanhung.com>
+ * @copyright 713uk13m <dev@nguyenanhung.com>
  */
 interface SlackMessengerInterface
 {
