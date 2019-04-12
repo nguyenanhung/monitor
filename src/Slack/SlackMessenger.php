@@ -244,9 +244,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
      */
     public function send()
     {
-        $incomingUrl = !empty($this->incomingUrl) ? $this->incomingUrl : $this->sdkConfig[self::SLACK_MESSENGER_CONFIG_KEY]['incoming_url'];
-        $client      = new Client($incomingUrl, $this->clientAttributes);
-        $message     = new Message($client);
+        $incomingUrl      = !empty($this->incomingUrl) ? $this->incomingUrl : $this->sdkConfig[self::SLACK_MESSENGER_CONFIG_KEY]['incoming_url'];
+        $clientAttributes = is_array($this->clientAttributes) ? $this->clientAttributes : array();
+        $client           = new Client($incomingUrl, $clientAttributes);
+        $message          = new Message($client);
         $message->to($this->targetChannel);
         if (!empty($this->attachMessage)) {
             $message->attach($this->attachMessage);
