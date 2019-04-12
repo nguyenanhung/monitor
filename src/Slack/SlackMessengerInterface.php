@@ -65,6 +65,28 @@ interface SlackMessengerInterface
     public function getClientAttributes();
 
     /**
+     * Function setIncomingUrl
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-04-12 09:13
+     *
+     * @param string $incomingUrl
+     *
+     * @return $this
+     */
+    public function setIncomingUrl($incomingUrl = '');
+
+    /**
+     * Function getIncomingUrl
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-04-12 09:14
+     *
+     * @return string|null
+     */
+    public function getIncomingUrl();
+
+    /**
      * Function setTargetChannel
      *
      * @author: 713uk13m <dev@nguyenanhung.com>

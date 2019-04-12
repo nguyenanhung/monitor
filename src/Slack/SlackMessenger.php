@@ -26,6 +26,8 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     private $sdkConfig;
     /** @var array|null Setup Client Attributes */
     private $clientAttributes;
+    /** @var string|null Incoming WebHooks URL received Message */
+    private $incomingUrl;
     /** @var string|null Target Channel received Message */
     private $targetChannel;
     /** @var mixed Content Message */
@@ -111,6 +113,36 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     public function getClientAttributes()
     {
         return $this->clientAttributes;
+    }
+
+    /**
+     * Function setIncomingUrl
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-04-12 09:13
+     *
+     * @param string $incomingUrl
+     *
+     * @return $this
+     */
+    public function setIncomingUrl($incomingUrl = '')
+    {
+        $this->incomingUrl = $incomingUrl;
+
+        return $this;
+    }
+
+    /**
+     * Function getIncomingUrl
+     *
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-04-12 09:14
+     *
+     * @return string|null
+     */
+    public function getIncomingUrl()
+    {
+        return $this->incomingUrl;
     }
 
     /**
@@ -212,8 +244,9 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
      */
     public function send()
     {
-        $client  = new Client($this->sdkConfig[self::SLACK_MESSENGER_CONFIG_KEY]['incoming_url'], $this->clientAttributes);
-        $message = new Message($client);
+        $incomingUrl = !empty($this->incomingUrl) ? $this->incomingUrl : $this->sdkConfig[self::SLACK_MESSENGER_CONFIG_KEY]['incoming_url'];
+        $client      = new Client($incomingUrl, $this->clientAttributes);
+        $message     = new Message($client);
         $message->to($this->targetChannel);
         if (!empty($this->attachMessage)) {
             $message->attach($this->attachMessage);
