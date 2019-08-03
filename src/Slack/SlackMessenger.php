@@ -12,9 +12,13 @@ namespace nguyenanhung\Monitor\Slack;
 use Maknz\Slack\Client;
 use Maknz\Slack\Message;
 use nguyenanhung\Monitor\ProjectInterface;
+use nguyenanhung\Monitor\Version;
+use nguyenanhung\Monitor\Config;
 
 /**
  * Class SlackMessenger
+ *
+ * Hàm này dùng gửi tin tới 1 workspace qua incoming web hooks
  *
  * @package   nguyenanhung\Monitor\Slack
  * @author    713uk13m <dev@nguyenanhung.com>
@@ -22,6 +26,8 @@ use nguyenanhung\Monitor\ProjectInterface;
  */
 class SlackMessenger implements ProjectInterface, SlackMessengerInterface
 {
+    use Version, Config;
+
     /** @var array|null SDK Config */
     private $sdkConfig;
     /** @var array|null Setup Client Attributes */
@@ -43,57 +49,14 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     }
 
     /**
-     * Function getVersion
-     *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:48
-     *
-     * @return mixed|string
-     */
-    public function getVersion()
-    {
-        return self::VERSION;
-    }
-
-    /**
-     * Function setSdkConfig
-     *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:49
-     *
-     * @param array $sdkConfig
-     *
-     * @return $this
-     */
-    public function setSdkConfig($sdkConfig = [])
-    {
-        $this->sdkConfig = $sdkConfig;
-
-        return $this;
-    }
-
-    /**
-     * Function getSdkConfig
-     *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:49
-     *
-     * @return mixed
-     */
-    public function getSdkConfig()
-    {
-        return $this->sdkConfig;
-    }
-
-    /**
      * Function setClientAttributes
-     *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:50
      *
      * @param array $clientAttributes
      *
      * @return $this
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 11/26/18 00:50
+     *
      */
     public function setClientAttributes($clientAttributes = [])
     {
@@ -105,10 +68,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function getClientAttributes
      *
+     * @return mixed
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 11/26/18 00:51
      *
-     * @return mixed
      */
     public function getClientAttributes()
     {
@@ -118,12 +81,12 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function setIncomingUrl
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-04-12 09:13
-     *
      * @param string $incomingUrl
      *
      * @return $this
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-04-12 09:13
+     *
      */
     public function setIncomingUrl($incomingUrl = '')
     {
@@ -135,10 +98,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function getIncomingUrl
      *
+     * @return string|null
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 2019-04-12 09:14
      *
-     * @return string|null
      */
     public function getIncomingUrl()
     {
@@ -148,12 +111,12 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function setTargetChannel
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:53
-     *
      * @param string $targetChannel
      *
      * @return $this
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 11/26/18 00:53
+     *
      */
     public function setTargetChannel($targetChannel = '')
     {
@@ -165,10 +128,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function getTargetChannel
      *
+     * @return string|null
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 11/26/18 00:53
      *
-     * @return string|null
      */
     public function getTargetChannel()
     {
@@ -178,12 +141,12 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function setContentMessage
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:58
-     *
      * @param mixed $contentMessage
      *
      * @return $this
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 11/26/18 00:58
+     *
      */
     public function setContentMessage($contentMessage = '')
     {
@@ -195,10 +158,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function getContentMessage
      *
+     * @return mixed
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 11/26/18 00:58
      *
-     * @return mixed
      */
     public function getContentMessage()
     {
@@ -208,12 +171,12 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function setAttachMessage
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 01:01
-     *
      * @param mixed $attachMessage
      *
      * @return $this
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 11/26/18 01:01
+     *
      */
     public function setAttachMessage($attachMessage)
     {
@@ -225,10 +188,10 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
     /**
      * Function getAttachMessage
      *
+     * @return mixed
      * @author: 713uk13m <dev@nguyenanhung.com>
      * @time  : 11/26/18 01:01
      *
-     * @return mixed
      */
     public function getAttachMessage()
     {
