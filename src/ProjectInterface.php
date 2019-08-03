@@ -17,8 +17,8 @@ namespace nguyenanhung\Monitor;
  */
 interface ProjectInterface
 {
-    const VERSION             = '1.0.4';
-    const LAST_MODIFIED       = '2019-04-12';
+    const VERSION             = '1.0.5';
+    const LAST_MODIFIED       = '2019-08-04';
     const AUTHOR_NAME         = 'Hung Nguyen';
     const AUTHOR_EMAIL        = 'dev@nguyenanhung.com';
     const PROJECT_NAME        = 'Monitor Connector';
@@ -38,12 +38,12 @@ interface ProjectInterface
     const USE_DEBUG           = FALSE;
 
     /**
-     * Hàm lấy thông tin phiên bản Package
+     * Function getVersion
      *
-     * @author  : 713uk13m <dev@nguyenanhung.com>
-     * @time    : 10/13/18 15:12
+     * @return mixed
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-08-04 03:03
      *
-     * @return mixed|string Current Project Version, VD: 0.1.0
      */
     public function getVersion();
 }
