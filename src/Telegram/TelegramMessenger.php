@@ -49,6 +49,54 @@ class TelegramMessenger implements ProjectInterface, TelegramMessengerInterface
         $this->requests = new MyRequests();
     }
 
+    /**
+     * Function getBotUpdates
+     *
+     * @return array|mixed
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-08-06 16:50
+     *
+     */
+    public function getBotUpdates()
+    {
+        $errorResponse = array('error' => TRUE);
+        if (!isset($this->sdkConfig[self::TELEGRAM_MESSENGER_CONFIG_KEY])) {
+            return $errorResponse;
+        }
+
+        // Cấu hình SDK
+        $sdkConfig = $this->sdkConfig[self::TELEGRAM_MESSENGER_CONFIG_KEY];
+
+        // Xác định API Key
+        if (!isset($sdkConfig['bot_api_key'])) {
+            return $errorResponse;
+        }
+
+        // Xác định tham số gửi tin đi
+        $chatId      = !empty($this->chatId) ? $this->chatId : (isset($sdkConfig['default_chat_id']) ? $sdkConfig['default_chat_id'] : NULL);
+        $textMessage = !empty($this->message) ? $this->message : NULL;
+        if (empty($chatId) || empty($textMessage)) {
+            return $errorResponse;
+        }
+
+        // Thiết lập Endpoint và Tham số gửi tin đi
+        $endpoint    = self::TELEGRAM_API . $sdkConfig['bot_api_key'] . self::METHOD_GET_UPDATES;
+        $sendRequest = $this->requests->sendRequest($endpoint, array(), 'POST');
+        $res         = json_decode(trim($sendRequest));
+
+        // Nếu không xác định được nội dung trả về
+        if ($res == NULL) {
+            return $errorResponse;
+        }
+
+        // Trường hợp gửi tin nhắn thành công
+        if ((isset($res->ok) && ($res->ok == TRUE)) && isset($res->result)) {
+            return $res;
+        }
+
+        return $errorResponse;
+    }
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ChatID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
     /**

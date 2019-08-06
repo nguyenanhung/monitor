@@ -20,12 +20,24 @@ interface TelegramMessengerInterface
 {
     const TELEGRAM_MESSENGER_CONFIG_KEY = 'telegram_messages';
     const TELEGRAM_API                  = 'https://api.telegram.org/bot';
+    const METHOD_GET_UPDATES            = '/getUpdates';
     const METHOD_SEND_MESSAGE           = '/sendMessage';
     const METHOD_SEND_PHOTO             = '/sendPhoto';
     const METHOD_SEND_AUDIO             = '/sendAudio';
     const METHOD_SEND_VIDEO             = '/sendVideo';
     const METHOD_SEND_DOCUMENT          = '/sendDocument';
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ChatID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
+
+    /**
+     * Function getBotUpdates
+     *
+     * @return array|mixed
+     * @author: 713uk13m <dev@nguyenanhung.com>
+     * @time  : 2019-08-06 16:50
+     *
+     */
+    public function getBotUpdates();
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ChatID ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
     /**
      * Function setChatId
