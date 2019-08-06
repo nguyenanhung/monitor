@@ -72,13 +72,6 @@ class TelegramMessenger implements ProjectInterface, TelegramMessengerInterface
             return $errorResponse;
         }
 
-        // Xác định tham số gửi tin đi
-        $chatId      = !empty($this->chatId) ? $this->chatId : (isset($sdkConfig['default_chat_id']) ? $sdkConfig['default_chat_id'] : NULL);
-        $textMessage = !empty($this->message) ? $this->message : NULL;
-        if (empty($chatId) || empty($textMessage)) {
-            return $errorResponse;
-        }
-
         // Thiết lập Endpoint và Tham số gửi tin đi
         $endpoint    = self::TELEGRAM_API . $sdkConfig['bot_api_key'] . self::METHOD_GET_UPDATES;
         $sendRequest = $this->requests->sendRequest($endpoint, array(), 'POST');
