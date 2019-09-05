@@ -24,7 +24,8 @@
         "ext-json": "*",
         "nguyenanhung/requests": "^1.0",
         "nguyenanhung/mantis-connector": "^1.0",
-        "maknz/slack": "^1.7"
+        "maknz/slack": "^1.7",
+        "nguyenanhung/telegram-messenger": "^1.0"
     },
     "require-dev": {
         "kint-php/kint": "^3.0"
