@@ -21,10 +21,10 @@ trait Version
     /**
      * Function getVersion
      *
-     * @return mixed|string
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 11/26/18 00:48
-     *
+     * @return mixed
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 11:13
      */
     public function getVersion()
     {

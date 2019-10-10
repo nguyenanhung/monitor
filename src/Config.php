@@ -24,9 +24,9 @@ trait Config
      * @param array $sdkConfig
      *
      * @return $this
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-08-04 02:24
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 10:56
      */
     public function setSdkConfig($sdkConfig = array())
     {
@@ -38,10 +38,10 @@ trait Config
     /**
      * Function getSdkConfig
      *
-     * @return array|null
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-08-04 02:24
-     *
+     * @return mixed
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 11:01
      */
     public function getSdkConfig()
     {
