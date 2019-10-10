@@ -26,16 +26,16 @@ class SystemNotification implements ProjectInterface
     use Version;
 
     /**
-     * Function mantis
+     * Hàm gửi thông báo, cảnh báo hệ thống tới Mantis Bug Tracker
      *
      * @param array  $sdkConfig
      * @param string $module
      * @param string $title
      * @param string $description
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-08-09 13:58
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 09:23
      */
     public static function mantis($sdkConfig = array(), $module = '', $title = 'Bug', $description = 'Bug')
     {
@@ -57,24 +57,24 @@ class SystemNotification implements ProjectInterface
             }
         }
         catch (Exception $e) {
-            $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
             if (function_exists('log_message')) {
+                $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
                 log_message('error', $message);
             }
         }
     }
 
     /**
-     * Function slack
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Slack
      *
      * @param array  $sdkConfig
      * @param string $module
      * @param string $message
      * @param array  $attachMessage
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-08-09 13:58
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 09:13
      */
     public static function slack($sdkConfig = array(), $module = '', $message = '', $attachMessage = array())
     {
@@ -99,24 +99,24 @@ class SystemNotification implements ProjectInterface
             }
         }
         catch (Exception $e) {
-            $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
             if (function_exists('log_message')) {
+                $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
                 log_message('error', $message);
             }
         }
     }
 
     /**
-     * Function telegram
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Telegram
      *
      * @param array  $sdkConfig
      * @param string $module
      * @param string $message
      * @param null   $roomId
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-08-09 14:05
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 08:52
      */
     public static function telegram($sdkConfig = array(), $module = '', $message = '', $roomId = NULL)
     {
@@ -131,42 +131,42 @@ class SystemNotification implements ProjectInterface
                 $handle->setSdkConfig($sdkConfig);
                 $handle->setChatId($chatId);
                 $handle->setMessage($message);
-                $handle->setMessage();
+                $handle->sendMessage();
             }
         }
         catch (Exception $e) {
-            $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
             if (function_exists('log_message')) {
+            $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
                 log_message('error', $message);
             }
         }
     }
 
     /**
-     * Function sms
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng SMS
      *
      * @param array  $sdkConfig
      * @param string $module
      * @param string $message
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-01-16 08:57
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 08:40
      */
     public static function sms($sdkConfig = array(), $module = '', $message = '')
     {
     }
 
     /**
-     * Function email
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Email
      *
      * @param array  $sdkConfig
      * @param string $module
      * @param string $message
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2019-01-16 08:57
-     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 08:35
      */
     public static function email($sdkConfig = array(), $module = '', $message = '')
     {
