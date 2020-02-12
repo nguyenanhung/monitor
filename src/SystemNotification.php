@@ -28,10 +28,10 @@ class SystemNotification implements ProjectInterface
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống tới Mantis Bug Tracker
      *
-     * @param array  $sdkConfig
-     * @param string $module
-     * @param string $title
-     * @param string $description
+     * @param array  $sdkConfig   Cấu hình SDK
+     * @param string $module      Tên Module cần báo lỗi / cảnh báo
+     * @param string $title       Tiêu đề lỗi / Cảnh báo
+     * @param string $description Mô tả chi tiết
      *
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
@@ -50,9 +50,9 @@ class SystemNotification implements ProjectInterface
                 $handle  = new MantisConnector();
                 $handle->setMonitorUrl($options['monitorUrl'])
                        ->setMonitorUser($options['monitorUser'])
-                       ->setUsername($options['monitorPassword'])
+                       ->setUsername($options['monitorUsername'])
+                       ->setMonitorPassword($options['monitorPassword'])
                        ->setProjectId($options['monitorProjectId'])
-                       ->setMonitorPassword($options['monitorUsername'])
                        ->mantis($monitorProjectName . $title . ' - ' . $module, $description);
             }
         }
@@ -67,10 +67,10 @@ class SystemNotification implements ProjectInterface
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống bằng Slack
      *
-     * @param array  $sdkConfig
-     * @param string $module
-     * @param string $message
-     * @param array  $attachMessage
+     * @param array  $sdkConfig     Cấu hình SDK
+     * @param string $module        Tên Module cần báo lỗi / cảnh báo
+     * @param string $message       Nội dung Cảnh báo / Lỗi
+     * @param array  $attachMessage Thông tin đính kèm
      *
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
@@ -109,10 +109,10 @@ class SystemNotification implements ProjectInterface
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống bằng Telegram
      *
-     * @param array  $sdkConfig
-     * @param string $module
-     * @param string $message
-     * @param null   $roomId
+     * @param array  $sdkConfig Cấu hình SDK
+     * @param string $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string $message   Nội dung cảnh báo / Lỗi
+     * @param null   $roomId    ID của phòng chat / người nhận
      *
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>

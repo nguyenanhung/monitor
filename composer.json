@@ -32,6 +32,9 @@
     "autoload": {
         "psr-4": {
             "nguyenanhung\\Monitor\\": "src/"
-        }
+        },
+        "files": [
+            "helpers/system_notification.php"
+        ]
     }
 }
