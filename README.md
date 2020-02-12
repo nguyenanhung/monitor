@@ -1,5 +1,8 @@
 # Monitor Project
 
+## Mantis
+- [x] Send Bug Information into Mantis BT System
+
 ## Slack
 
 - [x] SendMessage and Attachment to Channel
