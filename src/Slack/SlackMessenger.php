@@ -24,9 +24,11 @@ use nguyenanhung\Monitor\Config;
  * @author    713uk13m <dev@nguyenanhung.com>
  * @copyright 713uk13m <dev@nguyenanhung.com>
  */
-class SlackMessenger implements ProjectInterface, SlackMessengerInterface
+class SlackMessenger implements ProjectInterface
 {
     use Version, Config;
+
+    const SLACK_MESSENGER_CONFIG_KEY = 'slack_messages';
 
     /** @var array|null SDK Config */
     private $sdkConfig;
@@ -58,7 +60,7 @@ class SlackMessenger implements ProjectInterface, SlackMessengerInterface
      * @time  : 11/26/18 00:50
      *
      */
-    public function setClientAttributes($clientAttributes = [])
+    public function setClientAttributes($clientAttributes = array())
     {
         $this->clientAttributes = $clientAttributes;
 
