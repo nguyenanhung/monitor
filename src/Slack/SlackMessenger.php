@@ -42,6 +42,8 @@ class SlackMessenger implements ProjectInterface
     private $contentMessage;
     /** @var mixed Attach Message */
     private $attachMessage;
+    /** @var bool Cấu hình Message sử dụng Markdown */
+    private $useMarkdown;
 
     /**
      * SlackMessenger constructor.
@@ -201,6 +203,23 @@ class SlackMessenger implements ProjectInterface
     }
 
     /**
+     * Function setUseMarkdown
+     *
+     * @param bool $useMarkdown
+     *
+     * @return $this
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 2/17/20 30:11
+     */
+    public function setUseMarkdown($useMarkdown = FALSE)
+    {
+        $this->useMarkdown = $useMarkdown;
+
+        return $this;
+    }
+
+    /**
      * Function send
      *
      * @author: 713uk13m <dev@nguyenanhung.com>
@@ -219,6 +238,9 @@ class SlackMessenger implements ProjectInterface
         }
         if (!empty($this->contentMessage)) {
             $message->setText($this->contentMessage);
+        }
+        if ($this->useMarkdown === TRUE) {
+            $message->enableMarkdown();
         }
         $message->send();
     }
