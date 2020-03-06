@@ -23,7 +23,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "nguyenanhung/mantis-connector": "^1.0",
-        "maknz/slack": "^1.7",
+        "nguyenanhung/slack": "^1.0",
         "nguyenanhung/telegram-messenger": "^1.0"
     },
     "require-dev": {
