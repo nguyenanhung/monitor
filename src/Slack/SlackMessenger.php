@@ -9,8 +9,8 @@
 
 namespace nguyenanhung\Monitor\Slack;
 
-use Maknz\Slack\Client;
-use Maknz\Slack\Message;
+use nguyenanhung\Slack\Client;
+use nguyenanhung\Slack\Message;
 use nguyenanhung\Monitor\ProjectInterface;
 use nguyenanhung\Monitor\Version;
 use nguyenanhung\Monitor\Config;
