@@ -17,8 +17,8 @@ namespace nguyenanhung\Monitor;
  */
 interface ProjectInterface
 {
-    const VERSION       = '1.0.12';
-    const LAST_MODIFIED = '2020-02-17';
+    const VERSION       = '1.0.13';
+    const LAST_MODIFIED = '2020-03-06';
     const AUTHOR_NAME   = 'Hung Nguyen';
     const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
     const PROJECT_NAME  = 'Monitor Connector';
