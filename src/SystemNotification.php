@@ -58,8 +58,8 @@ class SystemNotification implements ProjectInterface
         }
         catch (Exception $e) {
             if (function_exists('log_message')) {
-                $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
-                log_message('error', $message);
+                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
     }
@@ -100,8 +100,8 @@ class SystemNotification implements ProjectInterface
         }
         catch (Exception $e) {
             if (function_exists('log_message')) {
-                $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
-                log_message('error', $message);
+                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
     }
@@ -136,8 +136,8 @@ class SystemNotification implements ProjectInterface
         }
         catch (Exception $e) {
             if (function_exists('log_message')) {
-                $message = 'Code: ' . $e->getCode() . ' - File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Message: ' . $e->getMessage();
-                log_message('error', $message);
+                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
     }
