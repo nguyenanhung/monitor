@@ -8,7 +8,7 @@
  */
 return array(
     // Slack Messenger
-    'slack_messages'    => array(
+    'slack_messages'            => array(
         'incoming_url'      => 'xxx',
         'target_channel'    => '#xxx',
         'client_attributes' => array(
@@ -20,13 +20,14 @@ return array(
         )
     ),
     // Telegram Messenger
-    'telegram_messages' => array(
+    'telegram_messages'         => array(
         'bot_name'        => 'xxx',
         'bot_api_key'     => 'xxx',
         'default_chat_id' => 1234,
     ),
+    'microsoft_teams_connector' => '',
     // Email Preferences
-    'email_preferences' => array(
+    'email_preferences'         => array(
         'notifyIsEnabled' => FALSE,
         'sender_config'   => array(
             'hostname' => 'xxx',
