@@ -15,6 +15,9 @@
 - [x] SendVideo via ChatID
 - [x] SendDocument via ChatID
 
+## Microsoft Teams
+- [x] Send Message with Simple Card
+
 ### Contact
 
 | STT  | Họ tên         | SĐT           | Email           | Skype            |
