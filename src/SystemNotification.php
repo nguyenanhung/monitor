@@ -11,6 +11,7 @@ namespace nguyenanhung\Monitor;
 
 use Exception;
 use nguyenanhung\MantisBT\MantisConnector;
+use nguyenanhung\Microsoft\Teams\MicrosoftTeamsConnector;
 use nguyenanhung\Monitor\Slack\SlackMessenger;
 use nguyenanhung\Monitor\Telegram\TelegramMessenger;
 
@@ -132,6 +133,42 @@ class SystemNotification implements ProjectInterface
                 $handle->setChatId($chatId);
                 $handle->setMessage($message);
                 $handle->sendMessage();
+            }
+        }
+        catch (Exception $e) {
+            if (function_exists('log_message')) {
+                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
+            }
+        }
+    }
+
+    /**
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Microsoft Teams
+     *
+     * @param array  $sdkConfig Cấu hình SDK
+     * @param string $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string $message   Nội dung cảnh báo / Lỗi
+     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 09/03/2020 52:26
+     */
+    public static function teams($sdkConfig = array(), $module = '', $message = '')
+    {
+        $config_key = 'microsoft_teams_connector';
+        try {
+            $webhookUrl = $sdkConfig[$config_key];
+            if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
+                if (isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName'])) {
+                    $monitorProjectName = '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ';
+                } else {
+                    $monitorProjectName = '';
+                }
+                $title       = $monitorProjectName . $module;
+                $textMessage = $message;
+                $teams       = new MicrosoftTeamsConnector();
+                $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
             }
         }
         catch (Exception $e) {

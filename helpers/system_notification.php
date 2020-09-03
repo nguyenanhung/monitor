@@ -61,3 +61,20 @@ if (!function_exists('system_notification_to_telegram')) {
         return nguyenanhung\Monitor\SystemNotification::telegram($sdkConfig, $module, $message, $roomId);
     }
 }
+if (!function_exists('system_notification_to_teams')) {
+    /**
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Microsoft Teams
+     *
+     * @param array  $sdkConfig Cấu hình SDK
+     * @param string $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string $message   Nội dung cảnh báo / Lỗi
+     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 2/12/20 04:37
+     */
+    function system_notification_to_teams($sdkConfig = array(), $module = '', $message = '')
+    {
+        return nguyenanhung\Monitor\SystemNotification::teams($sdkConfig, $module, $message);
+    }
+}
