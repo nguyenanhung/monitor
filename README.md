@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/nguyenanhung/monitor/v/stable)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Total Downloads](https://poser.pugx.org/nguyenanhung/monitor/downloads)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Latest Unstable Version](https://poser.pugx.org/nguyenanhung/monitor/v/unstable)](https://packagist.org/packages/nguyenanhung/monitor)
+[![composer.lock](https://poser.pugx.org/nguyenanhung/monitor/composerlock)](https://packagist.org/packages/nguyenanhung/monitor)
+[![License](https://poser.pugx.org/nguyenanhung/monitor/license)](https://packagist.org/packages/nguyenanhung/monitor)
 # Monitor Project
 
 ## Mantis
