@@ -127,8 +127,12 @@ class SystemNotification implements ProjectInterface
             if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
                 $title   = isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
                 $message = $title . $module . ' -> ' . $message;
-                $chatId  = !empty($roomId) && $roomId != NULL ? $roomId : (isset($config['default_chat_id']) ? $config['default_chat_id'] : NULL);
-                $handle  = new TelegramMessenger();
+                if (!empty($roomId)) {
+                    $chatId = $roomId;
+                } else {
+                    $chatId = (isset($config['default_chat_id']) ? $config['default_chat_id'] : NULL);
+                }
+                $handle = new TelegramMessenger();
                 $handle->setSdkConfig($sdkConfig);
                 $handle->setChatId($chatId);
                 $handle->setMessage($message);
