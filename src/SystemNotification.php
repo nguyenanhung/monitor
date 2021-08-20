@@ -34,6 +34,7 @@ class SystemNotification implements ProjectInterface
      * @param string $title       Tiêu đề lỗi / Cảnh báo
      * @param string $description Mô tả chi tiết
      *
+     * @return bool
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:23
@@ -55,6 +56,8 @@ class SystemNotification implements ProjectInterface
                        ->setMonitorPassword($options['monitorPassword'])
                        ->setProjectId($options['monitorProjectId'])
                        ->mantis($monitorProjectName . $title . ' - ' . $module, $description);
+
+                return TRUE;
             }
         }
         catch (Exception $e) {
@@ -63,6 +66,8 @@ class SystemNotification implements ProjectInterface
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
+
+        return FALSE;
     }
 
     /**
@@ -73,6 +78,7 @@ class SystemNotification implements ProjectInterface
      * @param string $message       Nội dung Cảnh báo / Lỗi
      * @param array  $attachMessage Thông tin đính kèm
      *
+     * @return bool
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:13
@@ -97,6 +103,8 @@ class SystemNotification implements ProjectInterface
                     $handle->setAttachMessage($attachMessage);
                 }
                 $handle->send();
+
+                return TRUE;
             }
         }
         catch (Exception $e) {
@@ -105,6 +113,8 @@ class SystemNotification implements ProjectInterface
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
+
+        return FALSE;
     }
 
     /**
@@ -115,6 +125,7 @@ class SystemNotification implements ProjectInterface
      * @param string $message   Nội dung cảnh báo / Lỗi
      * @param null   $roomId    ID của phòng chat / người nhận
      *
+     * @return bool
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 08:52
@@ -137,6 +148,8 @@ class SystemNotification implements ProjectInterface
                 $handle->setChatId($chatId);
                 $handle->setMessage($message);
                 $handle->sendMessage();
+
+                return TRUE;
             }
         }
         catch (Exception $e) {
@@ -145,6 +158,8 @@ class SystemNotification implements ProjectInterface
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
+
+        return FALSE;
     }
 
     /**
@@ -154,6 +169,7 @@ class SystemNotification implements ProjectInterface
      * @param string $module    Tên Module cần báo lỗi / cảnh báo
      * @param string $message   Nội dung cảnh báo / Lỗi
      *
+     * @return bool
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/03/2020 52:26
@@ -173,6 +189,8 @@ class SystemNotification implements ProjectInterface
                 $textMessage = $message;
                 $teams       = new MicrosoftTeamsConnector();
                 $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
+
+                return TRUE;
             }
         }
         catch (Exception $e) {
@@ -181,35 +199,7 @@ class SystemNotification implements ProjectInterface
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-    }
 
-    /**
-     * Hàm gửi thông báo, cảnh báo hệ thống bằng SMS
-     *
-     * @param array  $sdkConfig
-     * @param string $module
-     * @param string $message
-     *
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 10/10/19 08:40
-     */
-    public static function sms($sdkConfig = array(), $module = '', $message = '')
-    {
-    }
-
-    /**
-     * Hàm gửi thông báo, cảnh báo hệ thống bằng Email
-     *
-     * @param array  $sdkConfig
-     * @param string $module
-     * @param string $message
-     *
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 10/10/19 08:35
-     */
-    public static function email($sdkConfig = array(), $module = '', $message = '')
-    {
+        return FALSE;
     }
 }
