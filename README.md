@@ -1,11 +1,9 @@
-[![Latest Stable Version](https://poser.pugx.org/nguyenanhung/monitor/v/stable)](https://packagist.org/packages/nguyenanhung/monitor)
-[![Total Downloads](https://poser.pugx.org/nguyenanhung/monitor/downloads)](https://packagist.org/packages/nguyenanhung/monitor)
-[![Latest Unstable Version](https://poser.pugx.org/nguyenanhung/monitor/v/unstable)](https://packagist.org/packages/nguyenanhung/monitor)
-[![composer.lock](https://poser.pugx.org/nguyenanhung/monitor/composerlock)](https://packagist.org/packages/nguyenanhung/monitor)
-[![License](https://poser.pugx.org/nguyenanhung/monitor/license)](https://packagist.org/packages/nguyenanhung/monitor)
 # Monitor Project
 
+[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/monitor/v)](https://packagist.org/packages/nguyenanhung/monitor) [![Total Downloads](http://poser.pugx.org/nguyenanhung/monitor/downloads)](https://packagist.org/packages/nguyenanhung/monitor) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/monitor/v/unstable)](https://packagist.org/packages/nguyenanhung/monitor) [![License](http://poser.pugx.org/nguyenanhung/monitor/license)](https://packagist.org/packages/nguyenanhung/monitor) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/monitor/require/php)](https://packagist.org/packages/nguyenanhung/monitor)
+
 ## Mantis
+
 - [x] Send Bug Information into Mantis BT System
 
 ## Slack
@@ -21,6 +19,7 @@
 - [x] SendDocument via ChatID
 
 ## Microsoft Teams
+
 - [x] Send Message with Simple Card
 
 ### Contact

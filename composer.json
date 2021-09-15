@@ -20,6 +20,7 @@
         }
     ],
     "require": {
+        "php": "^7.0 || ^8.0",
         "ext-curl": "*",
         "ext-json": "*",
         "nguyenanhung/mantis-connector": "^1.0",
