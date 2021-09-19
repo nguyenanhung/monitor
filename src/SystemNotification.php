@@ -39,11 +39,11 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:23
      */
-    public static function mantis($sdkConfig = array(), $module = '', $title = 'Bug', $description = 'Bug')
+    public static function mantis(array $sdkConfig = array(), string $module = '', string $title = 'Bug', string $description = 'Bug'): bool
     {
         try {
             if (isset($sdkConfig['OPTIONS']) && !empty($sdkConfig['OPTIONS'])) {
-                if (isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName'])) {
+                if (isset($sdkConfig['SERVICES']['monitorProjectName'])) {
                     $monitorProjectName = '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ';
                 } else {
                     $monitorProjectName = '';
@@ -57,17 +57,16 @@ class SystemNotification implements ProjectInterface
                        ->setProjectId($options['monitorProjectId'])
                        ->mantis($monitorProjectName . $title . ' - ' . $module, $description);
 
-                return TRUE;
+                return true;
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if (function_exists('log_message')) {
                 log_message('error', 'Error Message: ' . $e->getMessage());
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
 
-        return FALSE;
+        return false;
     }
 
     /**
@@ -83,12 +82,12 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:13
      */
-    public static function slack($sdkConfig = array(), $module = '', $message = '', $attachMessage = array())
+    public static function slack(array $sdkConfig = array(), string $module = '', string $message = '', array $attachMessage = array()): bool
     {
         $config_key = 'slack_messages';
         try {
             if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
-                if (isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName'])) {
+                if (isset($sdkConfig['SERVICES']['monitorProjectName'])) {
                     $monitorProjectName = '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ';
                 } else {
                     $monitorProjectName = '';
@@ -104,44 +103,43 @@ class SystemNotification implements ProjectInterface
                 }
                 $handle->send();
 
-                return TRUE;
+                return true;
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if (function_exists('log_message')) {
                 log_message('error', 'Error Message: ' . $e->getMessage());
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
 
-        return FALSE;
+        return false;
     }
 
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống bằng Telegram
      *
-     * @param array  $sdkConfig Cấu hình SDK
-     * @param string $module    Tên Module cần báo lỗi / cảnh báo
-     * @param string $message   Nội dung cảnh báo / Lỗi
-     * @param null   $roomId    ID của phòng chat / người nhận
+     * @param array           $sdkConfig Cấu hình SDK
+     * @param string          $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string          $message   Nội dung cảnh báo / Lỗi
+     * @param null|string|int $roomId    ID của phòng chat / người nhận
      *
      * @return bool
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 08:52
      */
-    public static function telegram($sdkConfig = array(), $module = '', $message = '', $roomId = NULL)
+    public static function telegram(array $sdkConfig = array(), string $module = '', string $message = '', $roomId = null): bool
     {
         $config_key = 'telegram_messages';
         try {
             $config = $sdkConfig[$config_key];
             if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
-                $title   = isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
+                $title   = isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
                 $message = $title . $module . ' -> ' . $message;
                 if (!empty($roomId)) {
                     $chatId = $roomId;
                 } else {
-                    $chatId = (isset($config['default_chat_id']) ? $config['default_chat_id'] : NULL);
+                    $chatId = $config['default_chat_id'] ?? null;
                 }
                 $handle = new TelegramMessenger();
                 $handle->setSdkConfig($sdkConfig);
@@ -149,17 +147,16 @@ class SystemNotification implements ProjectInterface
                 $handle->setMessage($message);
                 $handle->sendMessage();
 
-                return TRUE;
+                return true;
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if (function_exists('log_message')) {
                 log_message('error', 'Error Message: ' . $e->getMessage());
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
 
-        return FALSE;
+        return false;
     }
 
     /**
@@ -174,13 +171,13 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/03/2020 52:26
      */
-    public static function teams($sdkConfig = array(), $module = '', $message = '')
+    public static function teams(array $sdkConfig = array(), string $module = '', string $message = ''): bool
     {
         $config_key = 'microsoft_teams_connector';
         try {
             $webhookUrl = $sdkConfig[$config_key];
             if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
-                if (isset($sdkConfig['SERVICES']) && isset($sdkConfig['SERVICES']['monitorProjectName'])) {
+                if (isset($sdkConfig['SERVICES']['monitorProjectName'])) {
                     $monitorProjectName = '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ';
                 } else {
                     $monitorProjectName = '';
@@ -190,16 +187,15 @@ class SystemNotification implements ProjectInterface
                 $teams       = new MicrosoftTeamsConnector();
                 $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
 
-                return TRUE;
+                return true;
             }
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             if (function_exists('log_message')) {
                 log_message('error', 'Error Message: ' . $e->getMessage());
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
 
-        return FALSE;
+        return false;
     }
 }
