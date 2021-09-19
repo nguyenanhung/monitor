@@ -1,7 +1,7 @@
 {
     "name": "nguyenanhung/monitor",
     "type": "library",
-    "description": "Monitor Connector",
+    "description": "PHP Plugins: Send Monitor Message to Monitor Service",
     "keywords": [
         "php",
         "monitor",
