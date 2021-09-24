@@ -39,7 +39,7 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:23
      */
-    public static function mantis(array $sdkConfig = array(), string $module = '', string $title = 'Bug', string $description = 'Bug'): bool
+    public static function mantis($sdkConfig = array(), $module = '', $title = 'Bug', $description = 'Bug')
     {
         try {
             if (isset($sdkConfig['OPTIONS']) && !empty($sdkConfig['OPTIONS'])) {
@@ -82,7 +82,7 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 09:13
      */
-    public static function slack(array $sdkConfig = array(), string $module = '', string $message = '', array $attachMessage = array()): bool
+    public static function slack(array $sdkConfig = array(), $module = '', $message = '', $attachMessage = array())
     {
         $config_key = 'slack_messages';
         try {
@@ -128,7 +128,7 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 08:52
      */
-    public static function telegram(array $sdkConfig = array(), string $module = '', string $message = '', $roomId = null): bool
+    public static function telegram($sdkConfig = array(), $module = '', $message = '', $roomId = null)
     {
         $config_key = 'telegram_messages';
         try {
@@ -138,8 +138,10 @@ class SystemNotification implements ProjectInterface
                 $message = $title . $module . ' -> ' . $message;
                 if (!empty($roomId)) {
                     $chatId = $roomId;
+                } elseif (isset($config['default_chat_id'])) {
+                    $chatId = $config['default_chat_id'];
                 } else {
-                    $chatId = $config['default_chat_id'] ?? null;
+                    $chatId = null;
                 }
                 $handle = new TelegramMessenger();
                 $handle->setSdkConfig($sdkConfig);
@@ -171,7 +173,7 @@ class SystemNotification implements ProjectInterface
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 09/03/2020 52:26
      */
-    public static function teams(array $sdkConfig = array(), string $module = '', string $message = ''): bool
+    public static function teams($sdkConfig = array(), $module = '', $message = '')
     {
         $config_key = 'microsoft_teams_connector';
         try {

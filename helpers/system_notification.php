@@ -20,7 +20,7 @@ if (!function_exists('system_notification_to_mantis')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 2/12/20 02:29
      */
-    function system_notification_to_mantis(array $sdkConfig = array(), string $module = '', string $title = 'Bug', string $description = 'Bug'): bool
+    function system_notification_to_mantis($sdkConfig = array(), $module = '', $title = 'Bug', $description = 'Bug')
     {
         return nguyenanhung\Monitor\SystemNotification::mantis($sdkConfig, $module, $title, $description);
     }
@@ -38,7 +38,7 @@ if (!function_exists('system_notification_to_slack')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 2/12/20 03:38
      */
-    function system_notification_to_slack(array $sdkConfig = array(), string $module = '', string $message = '', array $attachMessage = array()): bool
+    function system_notification_to_slack($sdkConfig = array(), $module = '', $message = '', $attachMessage = array())
     {
         return nguyenanhung\Monitor\SystemNotification::slack($sdkConfig, $module, $message, $attachMessage);
     }
@@ -56,7 +56,7 @@ if (!function_exists('system_notification_to_telegram')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 2/12/20 04:37
      */
-    function system_notification_to_telegram(array $sdkConfig = array(), string $module = '', string $message = '', $roomId = null): bool
+    function system_notification_to_telegram($sdkConfig = array(), $module = '', $message = '', $roomId = null)
     {
         return nguyenanhung\Monitor\SystemNotification::telegram($sdkConfig, $module, $message, $roomId);
     }
@@ -73,7 +73,7 @@ if (!function_exists('system_notification_to_teams')) {
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 2/12/20 04:37
      */
-    function system_notification_to_teams(array $sdkConfig = array(), string $module = '', string $message = ''): bool
+    function system_notification_to_teams($sdkConfig = array(), $module = '', $message = '')
     {
         return nguyenanhung\Monitor\SystemNotification::teams($sdkConfig, $module, $message);
     }

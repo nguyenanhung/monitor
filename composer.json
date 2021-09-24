@@ -20,13 +20,13 @@
         }
     ],
     "require": {
-        "php": "^7.0 || ^8.0",
+        "php": ">=5.6",
         "ext-curl": "*",
         "ext-json": "*",
-        "nguyenanhung/mantis-connector": "^2.0",
-        "nguyenanhung/slack": "^2.0",
-        "nguyenanhung/telegram-messenger": "^2.0",
-        "nguyenanhung/microsoft-teams-connector": "^2.0"
+        "nguyenanhung/mantis-connector": "^1.0",
+        "nguyenanhung/slack": "^1.0",
+        "nguyenanhung/telegram-messenger": "^1.0",
+        "nguyenanhung/microsoft-teams-connector": "^1.0"
     },
     "require-dev": {
         "kint-php/kint": ">=3.0"
