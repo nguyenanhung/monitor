@@ -17,8 +17,8 @@ namespace nguyenanhung\Monitor;
  */
 interface ProjectInterface
 {
-    const VERSION       = '3.0.2';
-    const LAST_MODIFIED = '2021-09-20';
+    const VERSION       = '3.0.3';
+    const LAST_MODIFIED = '2021-09-24';
     const AUTHOR_NAME   = 'Hung Nguyen';
     const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
     const PROJECT_NAME  = 'Monitor Connector';
@@ -27,10 +27,10 @@ interface ProjectInterface
     /**
      * Function getVersion
      *
-     * @return mixed
+     * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 2/12/20 13:40
      */
-    public function getVersion();
+    public function getVersion(): string;
 }

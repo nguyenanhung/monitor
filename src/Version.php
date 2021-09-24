@@ -21,12 +21,12 @@ trait Version
     /**
      * Function getVersion
      *
-     * @return mixed
+     * @return string
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 10/10/19 11:13
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return self::VERSION;
     }
