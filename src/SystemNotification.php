@@ -94,10 +94,10 @@ class SystemNotification implements ProjectInterface
                 }
                 $options = $sdkConfig[$config_key];
                 $handle  = new SlackMessenger();
-                $handle->setSdkConfig($sdkConfig);
-                $handle->setTargetChannel($options['target_channel']);
-                $handle->setClientAttributes($options['client_attributes']);
-                $handle->setContentMessage($monitorProjectName . $module . ' - ' . $message);
+                $handle->setSdkConfig($sdkConfig)
+                       ->setTargetChannel($options['target_channel'])
+                       ->setClientAttributes($options['client_attributes'])
+                       ->setContentMessage($monitorProjectName . $module . ' - ' . $message);
                 if (!empty($attachMessage)) {
                     $handle->setAttachMessage($attachMessage);
                 }
@@ -142,10 +142,10 @@ class SystemNotification implements ProjectInterface
                     $chatId = $config['default_chat_id'] ?? null;
                 }
                 $handle = new TelegramMessenger();
-                $handle->setSdkConfig($sdkConfig);
-                $handle->setChatId($chatId);
-                $handle->setMessage($message);
-                $handle->sendMessage();
+                $handle->setSdkConfig($sdkConfig)
+                       ->setChatId($chatId)
+                       ->setMessage($message)
+                       ->sendMessage();
 
                 return true;
             }
@@ -185,7 +185,8 @@ class SystemNotification implements ProjectInterface
                 $title       = $monitorProjectName . $module;
                 $textMessage = $message;
                 $teams       = new MicrosoftTeamsConnector();
-                $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
+                $teams->setWebHook($webhookUrl)
+                      ->simpleMessage($title, $textMessage);
 
                 return true;
             }
