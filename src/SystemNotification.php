@@ -49,7 +49,7 @@ class SystemNotification implements ProjectInterface
                     $monitorProjectName = '';
                 }
                 $options = $sdkConfig['OPTIONS'];
-                $handle  = new MantisConnector();
+                $handle = new MantisConnector();
                 $handle->setMonitorUrl($options['monitorUrl'])
                        ->setMonitorUser($options['monitorUser'])
                        ->setUsername($options['monitorUsername'])
@@ -93,7 +93,7 @@ class SystemNotification implements ProjectInterface
                     $monitorProjectName = '';
                 }
                 $options = $sdkConfig[$config_key];
-                $handle  = new SlackMessenger();
+                $handle = new SlackMessenger();
                 $handle->setSdkConfig($sdkConfig);
                 $handle->setTargetChannel($options['target_channel']);
                 $handle->setClientAttributes($options['client_attributes']);
@@ -134,7 +134,7 @@ class SystemNotification implements ProjectInterface
         try {
             $config = $sdkConfig[$config_key];
             if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
-                $title   = isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
+                $title = isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
                 $message = $title . $module . ' -> ' . $message;
                 if (!empty($roomId)) {
                     $chatId = $roomId;
@@ -184,9 +184,9 @@ class SystemNotification implements ProjectInterface
                 } else {
                     $monitorProjectName = '';
                 }
-                $title       = $monitorProjectName . $module;
+                $title = $monitorProjectName . $module;
                 $textMessage = $message;
-                $teams       = new MicrosoftTeamsConnector();
+                $teams = new MicrosoftTeamsConnector();
                 $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
 
                 return true;

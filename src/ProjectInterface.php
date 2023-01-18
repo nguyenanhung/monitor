@@ -17,12 +17,12 @@ namespace nguyenanhung\Monitor;
  */
 interface ProjectInterface
 {
-    const VERSION       = '2.1.1';
-    const LAST_MODIFIED = '2021-10-17';
-    const AUTHOR_NAME   = 'Hung Nguyen';
-    const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
-    const PROJECT_NAME  = 'Monitor Connector';
-    const TIMEZONE      = 'Asia/Ho_Chi_Minh';
+    const VERSION = '2.1.2';
+    const LAST_MODIFIED = '2023-01-18';
+    const AUTHOR_NAME = 'Hung Nguyen';
+    const AUTHOR_EMAIL = 'dev@nguyenanhung.com';
+    const PROJECT_NAME = 'Monitor Connector';
+    const TIMEZONE = 'Asia/Ho_Chi_Minh';
 
     /**
      * Function getVersion

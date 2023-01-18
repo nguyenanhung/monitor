@@ -29,7 +29,7 @@
 
 ### Contact
 
-| STT  | Name         | Email           | Skype            |
-| ---- | -------------- | --------------- | ---------------- |
-| 1    | Hung Nguyen | dev@nguyenanhung.com | nguyenanhung5891 |
+| STT | Name        | Email                | Skype            |
+|-----|-------------|----------------------|------------------|
+| 1   | Hung Nguyen | dev@nguyenanhung.com | nguyenanhung5891 |
 
