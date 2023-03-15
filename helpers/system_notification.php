@@ -61,6 +61,24 @@ if (!function_exists('system_notification_to_telegram')) {
         return nguyenanhung\Monitor\SystemNotification::telegram($sdkConfig, $module, $message, $roomId);
     }
 }
+if (!function_exists('system_notification_to_google_chat')) {
+    /**
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Google Chat
+     *
+     * @param array           $sdkConfig Cấu hình SDK
+     * @param string          $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string          $message   Nội dung cảnh báo / Lỗi
+     * @param null|string|int $spaceId   ID của phòng chat / người nhận
+     *
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 2/12/20 04:37
+     */
+    function system_notification_to_google_chat(array $sdkConfig = array(), string $module = '', string $message = '', $spaceId = null): bool
+    {
+        return nguyenanhung\Monitor\SystemNotification::google_chat($sdkConfig, $module, $message, $spaceId);
+    }
+}
 if (!function_exists('system_notification_to_teams')) {
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống bằng Microsoft Teams

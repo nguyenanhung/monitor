@@ -27,6 +27,10 @@
 
 - [x] Send Message with Simple Card
 
+## Google Chat
+
+- [x] SendMessage via SpaceID
+
 ### Contact
 
 | STT | Name        | Email                | Skype            |
