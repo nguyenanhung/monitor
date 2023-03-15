@@ -14,6 +14,7 @@ use nguyenanhung\MantisBT\MantisConnector;
 use nguyenanhung\Microsoft\Teams\MicrosoftTeamsConnector;
 use nguyenanhung\Monitor\Slack\SlackMessenger;
 use nguyenanhung\Monitor\Telegram\TelegramMessenger;
+use nguyenanhung\Platform\Notification\GoogleChat\Notifier;
 
 /**
  * Class SystemNotification
@@ -148,6 +149,54 @@ class SystemNotification implements ProjectInterface
                        ->sendMessage();
 
                 return true;
+            }
+        } catch (Exception $e) {
+            if (function_exists('log_message')) {
+                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Hàm gửi thông báo, cảnh báo hệ thống bằng Google Chat
+     *
+     * @param array           $sdkConfig Cấu hình SDK
+     * @param string          $module    Tên Module cần báo lỗi / cảnh báo
+     * @param string          $message   Nội dung cảnh báo / Lỗi
+     * @param null|string|int $spaceId   ID của phòng chat / người nhận
+     *
+     * @return bool
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 10/10/19 08:52
+     */
+    public static function google_chat(array $sdkConfig = array(), string $module = '', string $message = '', $spaceId = null): bool
+    {
+        $config_key = 'google_chat';
+        try {
+            $config = $sdkConfig[$config_key];
+            if (isset($sdkConfig[$config_key]) && !empty($sdkConfig[$config_key])) {
+                $title = isset($sdkConfig['SERVICES']['monitorProjectName']) ? '[' . $sdkConfig['SERVICES']['monitorProjectName'] . '] - ' : '';
+                $message = $title . $module . ' -> ' . $message;
+                if (!empty($spaceId)) {
+                    $chatId = $spaceId;
+                } elseif (isset($config['default_space_id'])) {
+                    $chatId = $config['default_space_id'];
+                } else {
+                    $chatId = null;
+                }
+                $access_key = $config['access_key'] ?? null;
+                $access_token = $config['access_token'] ?? null;
+                $handle = new Notifier();
+                $handle->setSpaceId($chatId)
+                       ->setKey($access_key)
+                       ->setToken($access_token)
+                       ->setMessage($message);
+
+                return $handle->send();
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
