@@ -26,6 +26,7 @@
         "nguyenanhung/mantis-connector": "^1.0",
         "nguyenanhung/slack": "^1.0",
         "nguyenanhung/telegram-messenger": "^1.0",
+        "nguyenanhung/google-chat-notifier": "^1.0",
         "nguyenanhung/microsoft-teams-connector": "^1.0"
     },
     "require-dev": {
