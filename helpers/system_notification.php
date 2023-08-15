@@ -7,6 +7,12 @@
  * Date: 2/12/20
  * Time: 11:00
  */
+if (!function_exists('_sn_helper_error_message_')) {
+    function _sn_helper_error_message_($e): string
+    {
+        return 'Error File: ' . $e->getFile() . ' - Line: ' . $e->getLine() . ' - Code: ' . $e->getCode() . ' - Message: ' . $e->getMessage();
+    }
+}
 if (!function_exists('system_notification_to_mantis')) {
     /**
      * Hàm gửi thông báo, cảnh báo hệ thống tới Mantis Bug Tracker
