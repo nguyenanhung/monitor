@@ -61,7 +61,7 @@ class SystemNotification implements ProjectInterface
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', system_notification_error_message($e));
+                log_message('error', _sn_helper_error_message_($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
@@ -105,7 +105,7 @@ class SystemNotification implements ProjectInterface
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', system_notification_error_message($e));
+                log_message('error', _sn_helper_error_message_($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
@@ -146,7 +146,7 @@ class SystemNotification implements ProjectInterface
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', system_notification_error_message($e));
+                log_message('error', _sn_helper_error_message_($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
@@ -189,7 +189,7 @@ class SystemNotification implements ProjectInterface
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', system_notification_error_message($e));
+                log_message('error', _sn_helper_error_message_($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
@@ -227,7 +227,7 @@ class SystemNotification implements ProjectInterface
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', system_notification_error_message($e));
+                log_message('error', _sn_helper_error_message_($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
