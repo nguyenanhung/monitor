@@ -57,16 +57,14 @@ class SystemNotification implements ProjectInterface
                        ->setMonitorPassword($options['monitorPassword'])
                        ->setProjectId($options['monitorProjectId'])
                        ->mantis($monitorProjectName . $title . ' - ' . $module, $description);
-
                 return true;
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', system_notification_error_message($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-
         return false;
     }
 
@@ -103,16 +101,14 @@ class SystemNotification implements ProjectInterface
                     $handle->setAttachMessage($attachMessage);
                 }
                 $handle->send();
-
                 return true;
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', system_notification_error_message($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-
         return false;
     }
 
@@ -145,20 +141,15 @@ class SystemNotification implements ProjectInterface
                     $chatId = null;
                 }
                 $handle = new TelegramMessenger();
-                $handle->setSdkConfig($sdkConfig);
-                $handle->setChatId($chatId);
-                $handle->setMessage($message);
-                $handle->sendMessage();
-
+                $handle->setSdkConfig($sdkConfig)->setChatId($chatId)->setMessage($message)->sendMessage();
                 return true;
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', system_notification_error_message($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-
         return false;
     }
 
@@ -193,20 +184,15 @@ class SystemNotification implements ProjectInterface
                 $access_key = isset($config['access_key']) ? $config['access_key'] : null;
                 $access_token = isset($config['access_token']) ? $config['access_token'] : null;
                 $handle = new Notifier();
-                $handle->setSpaceId($chatId)
-                       ->setKey($access_key)
-                       ->setToken($access_token)
-                       ->setMessage($message);
-
+                $handle->setSpaceId($chatId)->setKey($access_key)->setToken($access_token)->setMessage($message);
                 return $handle->send();
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', system_notification_error_message($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-
         return false;
     }
 
@@ -237,16 +223,14 @@ class SystemNotification implements ProjectInterface
                 $textMessage = $message;
                 $teams = new MicrosoftTeamsConnector();
                 $teams->setWebHook($webhookUrl)->simpleMessage($title, $textMessage);
-
                 return true;
             }
         } catch (Exception $e) {
             if (function_exists('log_message')) {
-                log_message('error', 'Error Message: ' . $e->getMessage());
+                log_message('error', system_notification_error_message($e));
                 log_message('error', 'Error Trace As String: ' . $e->getTraceAsString());
             }
         }
-
         return false;
     }
 }
