@@ -1,6 +1,11 @@
 # Monitor Project
 
-[![Latest Stable Version](http://poser.pugx.org/nguyenanhung/monitor/v)](https://packagist.org/packages/nguyenanhung/monitor) [![Total Downloads](http://poser.pugx.org/nguyenanhung/monitor/downloads)](https://packagist.org/packages/nguyenanhung/monitor) [![Latest Unstable Version](http://poser.pugx.org/nguyenanhung/monitor/v/unstable)](https://packagist.org/packages/nguyenanhung/monitor) [![License](http://poser.pugx.org/nguyenanhung/monitor/license)](https://packagist.org/packages/nguyenanhung/monitor) [![PHP Version Require](http://poser.pugx.org/nguyenanhung/monitor/require/php)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Latest Stable Version](https://img.shields.io/packagist/v/nguyenanhung/monitor.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Total Downloads](https://img.shields.io/packagist/dt/nguyenanhung/monitor.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Daily Downloads](https://img.shields.io/packagist/dd/nguyenanhung/monitor.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/monitor)
+[![Monthly Downloads](https://img.shields.io/packagist/dm/nguyenanhung/monitor.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/monitor)
+[![License](https://img.shields.io/packagist/l/nguyenanhung/monitor.svg?style=flat-square)](https://packagist.org/packages/nguyenanhung/monitor)
+[![PHP Version Require](https://img.shields.io/packagist/dependency-v/nguyenanhung/monitor/php)](https://packagist.org/packages/nguyenanhung/monitor)
 
 ## Version
 
